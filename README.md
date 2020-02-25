@@ -2,19 +2,19 @@
 基于nodejs搭建的后台博客服务(第一阶段:原生node搭建)
 
 # 安装依赖
-npm install
+<pre>npm install</pre>
 
 # 服务启动
-npm start
-
+<pre>npm start</pre>
+ 
 # 目录结构
 <pre>|-myblog-cms
   |-bin
-  |  |-www.js <br>  //服务配置文件
+  |  |-www.js       //服务配置文件
   |-nodemon.json    //检测自动刷新服务的文件配置
   |-package-lock.json
   |-package.json    //安装包依赖
-  |-src <br>        //资源管理文件夹
+  |-src             //资源管理文件夹
   |  |-app.js
   |  |-config       //数据库配置文件
   |  |  |-db.js
