@@ -1,8 +1,13 @@
-# myblog-cms
+# 项目介绍
 基于nodejs搭建的后台博客服务(第一阶段:原生node搭建)
 
+# 安装依赖
+npm install
 
-# list
+# 服务启动
+npm start
+
+# 目录结构
 |-myblog-cms
   |-bin
   |  |-www.js       //服务配置文件
