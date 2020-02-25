@@ -8,7 +8,7 @@ npm install
 npm start
 
 # 目录结构
-|-myblog-cms
+|-myblog-cms <br>
   |-bin
   |  |-www.js       //服务配置文件
   |-nodemon.json    //检测自动刷新服务的文件配置
