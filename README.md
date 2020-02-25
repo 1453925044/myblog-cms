@@ -8,9 +8,9 @@ npm install
 npm start
 
 # 目录结构
-|-myblog-cms <br>
-  |-bin <br>
-  |  |-www.js       //服务配置文件
+<pre>|-myblog-cms
+  |-bin
+  |  |-www.js <br>  //服务配置文件
   |-nodemon.json    //检测自动刷新服务的文件配置
   |-package-lock.json
   |-package.json    //安装包依赖
@@ -30,3 +30,4 @@ npm start
   |  |  |-user.js
   |-static          //静态资源文件
   |  |-index.html
+</pre>
