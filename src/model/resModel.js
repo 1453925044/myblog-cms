@@ -33,7 +33,6 @@ class ErrorModel extends BaseModel {
 
 
 module.exports = {
-    BaseModel,
     SuccessModel,
     ErrorModel
 };

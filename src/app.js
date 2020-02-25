@@ -1,8 +1,14 @@
+const querysring = require('querystring')
 const handleBlogRouter = require('../src/router/blog')
 const handleUserRouer = require('../src/router/user')
 const serverHandle = (req, res) => {
     //设置返回格式 json
     res.setHeader('Content-type', 'application/json');
+    const url = req.url;
+    req.path = url.split('?')[0]
+    // 解析query
+    req.query = querysring.parse(url.split('?')[0]);
+
     // 处理博客路由
     const blogData = handleBlogRouter(req, res);
     if (blogData) {
