@@ -9,12 +9,12 @@ npm start
 
 # 目录结构
 |-myblog-cms <br>
-  |-bin
+  |-bin <br>
   |  |-www.js       //服务配置文件
   |-nodemon.json    //检测自动刷新服务的文件配置
   |-package-lock.json
   |-package.json    //安装包依赖
-  |-src             //资源管理文件夹
+  |-src <br>        //资源管理文件夹
   |  |-app.js
   |  |-config       //数据库配置文件
   |  |  |-db.js
