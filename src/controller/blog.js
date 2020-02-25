@@ -30,7 +30,13 @@ const getList = (author, keyword) => {
 }
 // 获取博客详情接口
 const getDetail = (id) => {
-    return
+    return {
+        id: 1,
+        title: '标题A',
+        content: '内容A',
+        createtime: 1582611267584,
+        author: '李四'
+    }
 }
 // 新建博客内容接口
 const newBlog = (blogData = {}) => {
@@ -46,8 +52,8 @@ const delBlog = (id) => {
 }
 
 module.exports = {
-    getList
-    // getDetail,
+    getList,
+    getDetail,
     // newBlog,
     // updateBlog,
     // delBlog
