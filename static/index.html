@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node测试</title>
+    <style>
+        .container {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        node 服务已经启动
+    </div>
+</body>
+<script type="text/javascript">
+    const creatHttp = function () {
+        var http = new XMLHttpRequest();
+        http.open('GET', 'http://localhost:3000/login?name=魏超&password=123');
+        http.onreadystatechange = function () {
+            if (http.status === 200 && http.readyState === 4) {
+                console.log(http.responseText);
+                var res = http.responseText;// 响应体数据
+                console.log(JSON.parse(res));// 将 json 数据转化为js数据
+            }
+        }
+        // 发送请求
+        http.send();
+    }()
+</script>
+
+</html>
