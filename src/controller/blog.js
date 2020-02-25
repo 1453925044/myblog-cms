@@ -40,21 +40,28 @@ const getDetail = (id) => {
 }
 // 新建博客内容接口
 const newBlog = (blogData = {}) => {
-    return
+    //blogData 是一个博客对象，包含title、content、属性等
+    return {
+        id: 3//表示新建博客、插入到数据表里面的id
+    }
+
 }
 // 更新博客内容接口
 const updateBlog = (id, blogData = {}) => {
-    return
+    console.log(id)
+    console.log(blogData)
+    return true
 }
 // 删除博客接口
 const delBlog = (id) => {
-    return
+    console.log(id)
+    return true
 }
 
 module.exports = {
     getList,
     getDetail,
-    // newBlog,
-    // updateBlog,
-    // delBlog
+    newBlog,
+    updateBlog,
+    delBlog
 }
