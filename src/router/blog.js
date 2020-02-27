@@ -7,37 +7,52 @@ const handleBlogRouter = (req, res) => {
     if (method == 'GET' && req.path === '/api/blog/list') {
         const author = req.query.author || ''
         const keyword = req.query.keyword || ''
-        const listData = getList(author, keyword);
-        return new SuccessModel(listData)
+        const result = getList(author, keyword);
+        return result.then(listData => {
+            return new SuccessModel(listData)
+        })
+
     }
     //获取博客详情
     if (method === 'GET' && req.path === '/api/blog/detail') {
         const id = req.query.id || '';
-        const data = getDetail(id);
-        return new SuccessModel(data);
+        const result = getDetail(id)
+        return result.then(data => {
+            return new SuccessModel(data)
+        })
     }
     //新增博客
     if (method === 'POST' && req.path === '/api/blog/new') {
-        const data = newBlog(req.body)
-        return new SuccessModel(data)
+        req.body.author = '魏大大'//假数据,待开发登录时加上
+        const result = newBlog(req.body);
+        return result.then(data => {
+            return new SuccessModel(data)
+        })
     }
     //更新博客内容
-    if (method === 'POST' && req.path === '/api/blog/updete') {
+    if (method === 'POST' && req.path === '/api/blog/update') {
+        req.body.author = '魏大大2'//假数据,待开发登录时加上
         const result = updateBlog(req.query.id, req.body)
-        if (result) {
-            return new SuccessModel()
-        } else {
-            return new ErrorModel('博客更新失败')
-        }
+        return result.then(val => {
+            if (val) {
+                return new SuccessModel('博客更新成功')
+            } else {
+                return new ErrorModel('博客更新失败')
+            }
+        })
+
     }
     //删除博客
     if (method === 'POST' && req.path === '/api/blog/del') {
-        const result = delBlog(req.query.id)
-        if (result) {
-            return new SuccessModel()
-        } else {
-            return new ErrorModel('删除失败')
-        }
+        const author = '魏大大2'//假数据,待开发登录时加上
+        const result = delBlog(req.query.id, author)
+        return result.then(val => {
+            if (val) {
+                return new SuccessModel('博客删除成功')
+            } else {
+                return new ErrorModel('删除失败')
+            }
+        })
     }
 }
 

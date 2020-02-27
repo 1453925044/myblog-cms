@@ -13,26 +13,28 @@ const serverHandle = (req, res) => {
     getPostData(req).then(postData => {
         req.body = postData;
         // 处理博客路由
-        const blogData = handleBlogRouter(req, res);
-        if (blogData) {
-            res.end(
-                JSON.stringify(blogData)
-            )
+        const blogResult = handleBlogRouter(req, res);
+        if (blogResult) {
+            blogResult.then(blogData => {
+                res.end(
+                    JSON.stringify(blogData)
+                )
+            })
             return
         }
-
         //处理登陆路由
-        const userData = handleUserRouer(req, res);
-        if (userData) {
-            res.end(
-                JSON.stringify(userData)
-            )
+        const useResult = handleUserRouer(req, res);
+        if (useResult) {
+            useResult.then(userData => {
+                res.end(
+                    JSON.stringify(userData)
+                )
+            })
             return
         }
-
         // 未命中路由
-        res.writeHead(404, { 'Content-type': 'text/plain;charset=utf-8' })
-        res.write('草泥马');
+        res.writeHead(404, { 'Content-type': 'text/html;charset=utf-8' })
+        res.write(`<h1 style="margin:auto">404 NOT FIND</h1>`)
         res.end();
     })
 }
@@ -47,10 +49,9 @@ const getPostData = (req) => {
             resolve({})
             return;
         }
-        let postDat = '';
+        let postData = '';
         req.on('data', chunk => {
             postData += chunk.toString();
-
         })
         req.on('end', () => {
             if (!postData) {
