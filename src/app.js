@@ -9,7 +9,19 @@ const serverHandle = (req, res) => {
     req.path = url.split('?')[0]
     // 解析query
     req.query = querysring.parse(url.split('?')[1]);
-
+    //解析cookie
+    req.cookie = {}; //创建一个空的cookie对象用于存储成json格式
+    const cookieStr = req.headers.cookie || ''; //k1=v1;k2=v2，字符串格式
+    cookieStr.split(';').forEach(item => {
+        if (!item) {
+            return
+        }
+        const arr = item.split('=')
+        const key = arr[0].trim(); //trim去掉添加的cookie空格
+        const val = arr[1].trim();
+        req.cookie[key] = val;
+    });
+    console.log('cookie'+JSON.stringify(req.cookie));
     getPostData(req).then(postData => {
         req.body = postData;
         // 处理博客路由
