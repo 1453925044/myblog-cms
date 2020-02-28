@@ -6,7 +6,7 @@ const serverHandle = (req, res) => {
     //设置返回格式 json
     res.setHeader('Content-type', 'application/json');
     const url = req.url;
-    req.path = url.split('?')[0]
+    req.path = url.split('?')[0];
     // 解析query
     req.query = querysring.parse(url.split('?')[1]);
     //解析cookie
