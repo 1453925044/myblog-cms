@@ -8,7 +8,7 @@ redisClient.on('error', err => {
     console.error(err)
 })
  
-// 设置redis key值
+// 设置redis key值 
 const set = (key, val) => {
     //key,val必须是个字符串
     if (typeof val === 'object') {
@@ -48,4 +48,5 @@ module.exports = {
     set,
     get
 }
+
 
