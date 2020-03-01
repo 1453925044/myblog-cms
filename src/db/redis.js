@@ -7,10 +7,9 @@ const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host);
 redisClient.on('error', err => {
     console.error(err)
 })
- 
-// 设置redis key值 
+
+// 设置redis key值,key,val必须是个字符串
 const set = (key, val) => {
-    //key,val必须是个字符串
     if (typeof val === 'object') {
         val = JSON.stringify(val)
     }
@@ -41,12 +40,11 @@ const get = (key) => {
         })
         return promise;
     })
-    return promise
+    return promise;
 }
 
 module.exports = {
     set,
     get
 }
-
 
