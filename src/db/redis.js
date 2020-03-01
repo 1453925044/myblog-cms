@@ -41,7 +41,7 @@ const get = (key) => {
         })
         return promise;
     })
-    return promise;
+    return promise
 }
 
 module.exports = {
