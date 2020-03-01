@@ -7,7 +7,7 @@ const redisClient = redis.createClient(REDIS_CONF.port, REDIS_CONF.host);
 redisClient.on('error', err => {
     console.error(err)
 })
-
+ 
 // 设置redis key值
 const set = (key, val) => {
     //key,val必须是个字符串
